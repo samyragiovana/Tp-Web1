@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Trabalho</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.js"> 
+</head>
+
+<body>
+    <section class="novoMenu">
+        <div id="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="../imagens/Ícone-Carrinho-de-Compras-PNG.png" alt="50" width="50">
+                </div>
+                <nav id="MenuItens">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="">Empresa</a></li>
+                        <li><a href="">Contatos</a></li>
+                        <li><a href="">Login</a></li>
+                    </ul>
+                </nav>
+                <a href="carrinho.html">
+                <img src="../imagens/Ícone-Carrinho-de-Compras-PNG.png" alt="23" width="23"></a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="minha-conta">
+        <div class="container">
+            <div class="linha">
+                <div class="coluna-2">
+                    <img src="../imagens/a.png" alt="" width="100%">
+                
+                </div>
+                <div class="coluna-2">
+                    <div class="formulario">
+                        <!-- Botões de navegação entre Entrar e Cadastro -->
+                        <div class="btn-form">
+                            <span onclick="Entrar()">Entrar</span>
+                            <span onclick="Cadastro()">Cadastro</span>
+                            <hr id="Indicador"> <!-- Indicador visual para mostrar a seção ativa (Entrar ou Cadastro) -->
+                        </div>
+                
+                        <!-- Formulário de Entrar -->
+                        <form id="EntrarPainel" action="php/validaLogin.php" method="POST">
+                            <input type="email" name="nome" id="emailEntrar" placeholder="Digite seu email" required>
+                            <input type="password" name="senha" id="senhaEntrar" placeholder="Digite sua senha" required>
+                            <!-- Adicionei um evento ao formulário -->
+                            <button type="submit" name="senEntrar" class="btn" id="btnEntrar">Entrar</button>
+                            <a href="">Esqueceu sua senha?</a> <!-- Link para a recuperação de senha -->
+                        </form>
+                
+                        <!-- Formulário de Cadastro -->
+                        <form id="CadastroSite" action="php/create.php" method="POST">
+                            <input type="text" name="nome" id="nomeCadastro" placeholder="Nome Completo">
+                            <input type="email" name="email" id="emailCadastro" placeholder="Digite seu email">
+                            <input type="password" name="senha" id="senhaCadastro" placeholder="Digite sua senha">
+                            <button type="submit" name="senCad" class="btn" id="btnCadastro" >Cadastre-se</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="linha">
+                <div class="rodape-coluna">
+                    <h3>redes sociais</h3>
+                    <ul>
+                        <li>facebook</li>
+                        <li>instagram</li>
+                        <li>yt</li>
+                        <li>twitter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../front-end/login.js"></script>
+</body>
+
+</html>
