@@ -75,3 +75,35 @@ document.addEventListener('carrinho', function () {
 
 
 
+
+function verProduto(produto) {
+    // Get the product information from the product element
+    const produtoImg = document.getElementById('produtoImg');
+    const produtoNome = document.querySelector('.coluna-2 p:first-child');
+    const produtoPreco = document.querySelector('.coluna-2 h4');
+    const produtoDescricao = document.querySelector('.coluna-2 h3:following-sibling');
+
+    // Set the product information in the product view section
+    produtoImg.src = produto.querySelector('img').src;
+    produtoNome.textContent = produto.querySelector('h4').textContent;
+    produtoPreco.textContent = produto.querySelector('p').textContent;
+    produtoDescricao.textContent = produto.querySelector('p:last-child').textContent;
+
+    // Show the product view section
+    document.querySelector('.corpo-categorias.ver-produto').style.display = 'block';
+}
+
+// Add event listeners to the product elements to call the verProduto function when clicked
+const produtos = document.querySelectorAll('#produtos');
+for (const produto of produtos) {
+    produto.addEventListener('click', () => verProduto(produto));
+}
+
+function abrirModal() {
+    document.getElementById("produtoDetalhesModal").style.display = "block";
+}
+
+function fecharModal() {
+    document.getElementById("produtoDetalhesModal").style.display = "none";
+}
+

@@ -14,11 +14,13 @@
     --cor-fonte-botao: #29251c;
     --cor-fonte-body: rgb(163, 61, 61);
     --cor-fonte-body-leve: #9c9994;
+    --cor-banner: #fff5c6;
+    ;
 }
  
 
 .banner{
-    background: radial-gradient(var(--cor-padrao-houver),var(--cor-padrao));
+    background: radial-gradient(var(--cor-banner),var(--cor-banner));
 }
 
 .banner .linha{
@@ -26,7 +28,7 @@
 }
 
 .container{
-    max-width: 1300px;
+    max-width: 1800px;
     margin:auto;
     padding-left: 25px;
     padding-right: 25px;
@@ -167,7 +169,7 @@ p{
 }
 
 .linha{
-    display: flex;
+    display: flex; 
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -199,16 +201,17 @@ p{
 }
 .coluna-2 img{
     max-width: 100%;
+    border-left: 180%;
     padding: 50px 0;
+    margin-right: auto;
 }
-
-.coluna-2 h1{
+ .coluna-2 h1{
     font-size: 50px;
     line-height: 60px;
     margin: 25px 0;
 }
 
-.coluna-2 p{
+ .coluna-2 p{
     font-weight: 600;
     color: var(--cor-fonte-botao);
 
@@ -300,9 +303,9 @@ h4{
     font-size: 14px;
 }
 .ofertas{
-    background: radial-gradient(var(--cor-padrao-houver),var(--cor-padrao));
+    background: radial-gradient(var(--cor-banner),var(--cor-banner));
     margin-top: 80px;
-    padding: 30px 0;
+    padding: 50px 0;
 }
 .coluna-2 .oferta.img{
     padding: 50px;
