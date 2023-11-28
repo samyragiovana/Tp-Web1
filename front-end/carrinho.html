@@ -34,12 +34,31 @@
     </section>
 
     <div class="corpo-categorias carrinho">
-        <table>
+        <div style="display: none;" id="cartDisplay"></div>
+        <div class="coluna-2">
+         <!--     ... (restante do conteúdo) -->
+            <!-- <form id="AdicionarAoCarrinhoForm">
+                <select name="tamanho" id="tamanhoSelecionado">
+                     ... (opções de tamanho) 
+                </select>
+                <input type="number" name="quantidade" id="quantidadeSelecionada" value="1">
+                <button type="button" class="btn" onclick="adicionarAoCarrinho()">Adicionar ao carrinho</button>
+            </form> -->
+        </div>
+        <table id="cartTable">
             <tr>
                 <th>Produto</th>
                 <th>Quantidade</th>
                 <th>Valor</th>
             </tr>
+            <!-- ... (restante do conteúdo da tabela) -->
+        </table>
+        <button type="button" class="btn" onclick="limparCarrinho()">Limpar Carrinho</button>
+
+
+    </div>
+          
+
            <!--  <tr>
                 <td>
                     <div class="info-carrinho">
@@ -97,10 +116,9 @@
                 </td>
                 <td>R$1520</td>
             </tr> -->
-        </table>
         <div class="valor-total">
             <table>
-                <tr>
+             <!--    <tr>
                     <td>Sub-total</td>
                     <td>R$1520</td>
                 </tr>
@@ -112,7 +130,7 @@
                     <td>Total</td>
                     <td>R$1540</td>
                 </tr>
-               
+                -->
             </table>
         </div>
     </div>

@@ -12,68 +12,77 @@ for (var i = 0; i < produtoMiniatura.length; i++) {
 // Initialize an array to store the cart items
 var cartItems = [];
 
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('cartItems')) {
+        cartItems = JSON.parse(localStorage.getItem('cartItems'));
+        updateCartDisplay();
+    }
+});
+
 function adicionarAoCarrinho() {
     var tamanhoSelecionado = document.getElementById('tamanhoSelecionado').value;
     var quantidadeSelecionada = document.getElementById('quantidadeSelecionada').value;
 
-    // Check if the required fields are filled
     if (tamanhoSelecionado === '' || quantidadeSelecionada === '' || quantidadeSelecionada <= 0) {
         alert('Por favor, selecione o tamanho e a quantidade corretos.');
     } else {
-        // Create an object representing the added item
         var newItem = {
             tamanho: tamanhoSelecionado,
-            quantidade: parseInt(quantidadeSelecionada), // Convert to integer
-            nome: "Aliança de ouro puro, 18kl", // Replace with actual product name
-            preco: 1520, // Replace with actual product price
+            quantidade: parseInt(quantidadeSelecionada),
+            nome: "Aliança de ouro puro, 18kl",
+            preco: 1520,
         };
 
-        // Add the item to the cart array
         cartItems.push(newItem);
 
-        // Update the cart display (this is a placeholder, you'll need to implement your own logic)
-        updateCartDisplay();
-
-
+        // Salva os itens no localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
         alert('Produto adicionado ao carrinho!');
+        updateCartDisplay();
+       
     }
+    
 }
 
-// Function to update the cart display
+
+
 function updateCartDisplay() {
-    // This is a placeholder, replace it with your actual logic to update the cart display
     var cartDisplay = document.getElementById('cartDisplay');
-    
-    // Clear previous content
+    var cartTable = document.getElementById('cartTable'); // Adicione o ID à sua tabela
+
     cartDisplay.innerHTML = '';
 
-    // Add each item to the cart display
     cartItems.forEach(function(item) {
         var itemElement = document.createElement('div');
         itemElement.innerHTML = `<p>${item.nome} - Tamanho: ${item.tamanho} - Quantidade: ${item.quantidade} - Preço: R$${item.preco * item.quantidade}</p>`;
         cartDisplay.appendChild(itemElement);
+
+        // Adiciona o item à tabela
+        var row = cartTable.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = item.nome;
+        cell2.innerHTML = item.quantidade;
+        cell3.innerHTML = 'R$' + item.preco * item.quantidade;
     });
+    
 }
+function limparCarrinho() {
+    // Limpa o array de itens do carrinho
+    cartItems = [];
 
-  
-document.addEventListener('carrinho', function () {
-  // Get all elements with the class 'produto-link'
-  var produtoLinks = document.querySelectorAll('.produto-link');
+    // Atualiza o localStorage
+    localStorage.removeItem('cartItems');
 
-  // Add a click event listener to each element
-  produtoLinks.forEach(function (link) {
-      link.addEventListener('click', function (event) {
-          // Prevent the default behavior of the link (i.e., navigating to the href)
-          event.preventDefault();
-
-          // Redirect to 'ver_produto.html'
-          window.location.href = 'ver_produto.html';
-      });
-  });
-});
-
-
-
+    // Limpa a exibição do carrinho
+    updateCartDisplay();
+    var cartTable = document.getElementById('cartTable');
+    while (cartTable.rows.length > 1) {
+        cartTable.deleteRow(1);
+    }
+}
 
 
 function verProduto(produto) {
