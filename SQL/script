@@ -10,7 +10,23 @@ email varchar(100) not null,
 senha char(100) not null
 );
 
+drop table if exists produtos;
+CREATE TABLE produtos (
+    id INTEGER auto_increment PRIMARY KEY ,
+    nome TEXT NOT NULL,
+    preco REAL NOT NULL,
+    imagem TEXT NOT NULL,
+    descricao TEXT
+);
+
 insert into usuario values
 (default, 'Samyra', 'samyra@gmail.com','admin');
 
+INSERT INTO produtos  VALUES
+    (default,'Colar Exemplo 1', 5200.00, '1.PNG', 'Descrição do Colar Exemplo 1'),
+    (default,'Colar Exemplo 2', 4500.00, '2.PNG', 'Descrição do Colar Exemplo 2'),
+    (default,'Colar Exemplo 3', 6000.00, '3.PNG', 'Descrição do Colar Exemplo 3');
+
 select*from usuario;
+select*from produtos;
+

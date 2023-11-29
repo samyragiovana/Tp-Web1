@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Joalheria</title>
+</head>
+<body>
+    <section class="novoMenu">
+        <div id="container">
+            <div class="navbar">
+                <div class="logo"> <a href="index.html"><img style="mix-blend-mode: multiply " src="../imagens/logo.png"
+                    alt="50" width="50"></a>
+        </div>
+                <nav id="MenuItens">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="empresa.html">Empresa</a></li>
+                        <li><a href="contatos.html">Contatos</a></li>
+                        <li><a href="minha-conta.html">Login</a></li>
+                    </ul>
+                </nav>
+                <a href="carrinho.html">
+                    <img src="../imagens/Ícone-Carrinho-de-Compras-PNG.png" alt="23" width="23"></a>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="container">
+        <form action="enviar.php" method="post">
+            <h2>Entre em Contato</h2>
+            <label for="nome">Nome :</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+h2 {
+    text-align: center;
+}
+
+    </style>
+
+</body>
+</html>

@@ -11,7 +11,7 @@
     --cor-fonte-paragrafo: #ada99f;
     --cor-botao: black;
     --cor-botao-houver: #e7ddd3;
-    --cor-fonte-botao: #29251c;
+    --cor-fonte-botao: #af6c61;
     --cor-fonte-body: rgb(163, 61, 61);
     --cor-fonte-body-leve: #9c9994;
     --cor-banner: #fff5c6;
@@ -357,12 +357,18 @@ h3{
     color: var(--cor-fonte-paragrafo);
     padding: 20px 0 5px;
     font-size: 18px;
+    width: 100%;
+    margin-top: 7px;
+    bottom: 0;
     
 }
 
 .rodape-coluna{
     flex-basis: 30%;
     display: inline-block;
+    padding: 30px;
+    justify-content: center;
+    text-align: center;
     list-style-type: none;
     min-width: 20px;
     margin-bottom: 10px;

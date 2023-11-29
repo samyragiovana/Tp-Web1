@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];

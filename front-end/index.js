@@ -71,12 +71,21 @@ function limparCarrinho() {
 }
 
 
-function verprod() {
-    const img = document.getElementById("produtos").querySelector("img");
-    const src = img.getAttribute("data-src");
+function verprod(produtoId) {
+    // Simula uma requisição assíncrona para o arquivo JSON
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            const produto = data.produtos.find(item => item.id === produtoId);
 
-    // Load the image
-    const imgElement = document.createElement("img");
-    imgElement.src = src;
-    document.getElementById("ver_produto").appendChild(imgElement);
+            if (produto) {
+                exibirProduto(produto);
+            } else {
+                alert('Produto não encontrado!');
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar dados do produto:', error);
+        });
 }
+
