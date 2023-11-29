@@ -1,4 +1,3 @@
-
 var produtoImg = document.getElementById("produtoImg");
 var produtoMiniatura = document.getElementsByClassName("produtoMiniatura");
 
@@ -8,10 +7,7 @@ for (var i = 0; i < produtoMiniatura.length; i++) {
     }
 }
 
-
-// Initialize an array to store the cart items
 var cartItems = [];
-
 document.addEventListener('DOMContentLoaded', function () {
     if (localStorage.getItem('cartItems')) {
         cartItems = JSON.parse(localStorage.getItem('cartItems'));
@@ -35,16 +31,12 @@ function adicionarAoCarrinho() {
 
         cartItems.push(newItem);
 
-        // Salva os itens no localStorage
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         alert('Produto adicionado ao carrinho!');
         updateCartDisplay();
-       
     }
     
 }
-
-
 
 function updateCartDisplay() {
     var cartDisplay = document.getElementById('cartDisplay');
@@ -67,16 +59,10 @@ function updateCartDisplay() {
         cell2.innerHTML = item.quantidade;
         cell3.innerHTML = 'R$' + item.preco * item.quantidade;
     });
-    
 }
 function limparCarrinho() {
-    // Limpa o array de itens do carrinho
     cartItems = [];
-
-    // Atualiza o localStorage
     localStorage.removeItem('cartItems');
-
-    // Limpa a exibição do carrinho
     updateCartDisplay();
     var cartTable = document.getElementById('cartTable');
     while (cartTable.rows.length > 1) {
@@ -85,34 +71,12 @@ function limparCarrinho() {
 }
 
 
-function verProduto(produto) {
-    // Get the product information from the product element
-    const produtoImg = document.getElementById('produtoImg');
-    const produtoNome = document.querySelector('.coluna-2 p:first-child');
-    const produtoPreco = document.querySelector('.coluna-2 h4');
-    const produtoDescricao = document.querySelector('.coluna-2 h3:following-sibling');
+function verprod() {
+    const img = document.getElementById("produtos").querySelector("img");
+    const src = img.getAttribute("data-src");
 
-    // Set the product information in the product view section
-    produtoImg.src = produto.querySelector('img').src;
-    produtoNome.textContent = produto.querySelector('h4').textContent;
-    produtoPreco.textContent = produto.querySelector('p').textContent;
-    produtoDescricao.textContent = produto.querySelector('p:last-child').textContent;
-
-    // Show the product view section
-    document.querySelector('.corpo-categorias.ver-produto').style.display = 'block';
+    // Load the image
+    const imgElement = document.createElement("img");
+    imgElement.src = src;
+    document.getElementById("ver_produto").appendChild(imgElement);
 }
-
-// Add event listeners to the product elements to call the verProduto function when clicked
-const produtos = document.querySelectorAll('#produtos');
-for (const produto of produtos) {
-    produto.addEventListener('click', () => verProduto(produto));
-}
-
-function abrirModal() {
-    document.getElementById("produtoDetalhesModal").style.display = "block";
-}
-
-function fecharModal() {
-    document.getElementById("produtoDetalhesModal").style.display = "none";
-}
-
